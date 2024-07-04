@@ -58,13 +58,6 @@ public class JwtUtils {
                 .signWith(rkey , SignatureAlgorithm.HS256)
                 .compact();
     }
-
-    public boolean isExpired(String token){
-        return  Jwts.parserBuilder().setSigningKey(key).build()
-                .parseClaimsJws(token)
-                .getBody()
-                .getExpiration()
-                .before(new Date());
-    }
+    
 
 }
